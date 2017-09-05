@@ -33,7 +33,7 @@ K4R.Events = function (selector, options) {
         if(!element) throw "K4R: widget element not found";
 
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://k4r.dev/api/widget?header=' + params.header+'&limit='+params.limit;
+        iframe.src = 'https://k4r.ru/api/widget?header=' + params.header+'&limit='+params.limit;
         iframe.scrolling = 'no';
         iframe.frameBorder = '0';
         iframe.style.height = 0;
