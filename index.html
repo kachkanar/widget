@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Виджет афиши качканара</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&amp;subset=cyrillic" rel="stylesheet">
+
+	<style>
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+
+	html {
+		box-sizing: border-box;
+	}
+
+	html, body {
+		min-height: 100%;
+		overflow-x: hidden;
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background-image: linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		font-family: 'Source Sans Pro', sans-serif;
+		-webkit-font-smoothing: antialiased;
+		font-size: 14pt;
+	}
+	.wrapper {
+		width: 64em;
+	    max-width: calc(100% - 4em);
+	    margin: 0 auto;
+	}
+
+	.section {
+		padding: 3em;
+		border-bottom: 1px solid #eee;
+	}
+	.section__title {
+		font-weight: 300;
+		font-size: 30px;
+		color: #636363;
+		text-align: center;
+		margin-bottom: 70px;
+	}
+
+	.header {
+		padding: 20px;
+		min-height: 100vh;
+		display: flex;
+    	flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		color: #fff;
+	}
+	.header h1 {
+	    font-size: 3.25em;
+		color: #fff;
+		font-weight: 300;
+	}
+
+	.main {
+		border-radius: 10px;
+		max-width: 1200px;
+		overflow: hidden;
+		background: #fff;
+	}
+	.k4r-events-widget {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+	.footer {
+		padding: 50px 0;
+		font-size: 0.8em;
+    	text-align: center;
+		color: rgba(255, 255, 255, 0.65);
+	}
+	.footer a {
+		color: rgba(255, 255, 255, 0.65);
+	}
+	.code {
+		background:#181818;
+		color:#f8f8f8;
+		display: block;
+		padding: 20px;
+		overflow: scroll;
+	}
+	.params-list li {
+		margin: 20px 0;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<span class="logo"><img src="https://k4r.ru/images/apple-touch-icon.png" alt="" /></span>
+			<h1>Виджет с афишей качканара</h1>
+			<p>Установите на свой сайт, <br>чтобы посетители знали о предстоящих событиях в городе</p>
+		</header>
+
+		<main class="main">
+			<section class="section example-section">
+				<h2 class="section__title">Живой пример</h2>
+				<div class="k4r-events-widget"></div>
+			</section>
+			<section class="section">
+				<h2 class="section__title">Подключение виджета</h2>
+				<p>Чтобы добавить на свой сайт виджет афиши Качканара, выполните эти два шага:</p>
+				<p><strong>I.</strong> В тег &lt;head&gt; на странице Вашего сайта добавьте подключение widget.js:</p>
+				<code class="code">
+					<span style="color:#ac885b">&lt;<span style="color:#ac885b">script</span> <span style="color:#ac885b">src</span>=<span style="color:#8f9d6a">"https://widget.k4r.ru/widget.js"</span>>&lt;/<span style="color:#ac885b">script</span>></span>
+				</code>
+				<p><strong>II.</strong> На странице Вашего сайта добавьте элемент DIV, задайте ему уникальный класс или ID и добавьте блок кода инициализации виджета.</p>
+				<code class="code">
+					<span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"k4r-events-widget"</span>>&lt;/<span style="color:#ac885b">div</span>></span><br>
+					&lt;<span style="color:#e0c589">script</span>><br>
+    				K4R.Events(<span style="color:#8f9d6a">'.k4r-events-widget'</span>);<br>
+					&lt;/<span style="color:#e0c589">script</span>>
+				</code>
+			</section>
+			<section class="section">
+				<h2 class="section__title">Дополнительные настройки</h2>
+				<p>Метод <strong>K4R.Events</strong> принимает два параметра:</p>
+				<ul class="params-list">
+					<li><strong>selector</strong> (string) — CSS селектор элемента, который будет являться контейнером для блока с афишей. В примере выше это значение <em>.k4r-events-widget</em></li>
+					<li><strong>options</strong> (object) — опции блока с виджетом. Объект, который может содержат поля:
+						<ul>
+							<li><strong>header</strong> — отображение заголовка виджета. Возможные значения: <em>0</em> — скрыть заголовок. <em>1</em> — отображать (по умолчанию).</li>
+							<li><strong>limit</strong> — ограничение на количество выводимых событий. По умолчанию — 10</li>
+							<li><strong>width</strong> — ширина виджета. Строка с указанием величин (пиксели или проценты). По умолчанию — 100%</li>
+						</ul>
+					</li>
+				</ul>
+
+			</section>
+		</main>
+	</div>
+
+	<footer class="footer">
+		<p>&copy; <a href="https://k4r.ru">Афиша Качканара</a></p>
+	</footer>
+
+    <script src="https://widget.k4r.ru/widget.js"></script>
+    <script>
+    	K4R.Events('.k4r-events-widget');
+    </script>
+</body>
+</html>
